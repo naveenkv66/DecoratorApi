@@ -9,6 +9,7 @@ using Microsoft.Extensions.DependencyInjection;
 using SimpleInjector;
 using SimpleInjector.Integration.AspNetCore.Mvc;
 using SimpleInjector.Lifestyles;
+using DecoratorApi.Contracts;
 
 
 
@@ -67,7 +68,7 @@ namespace DecoratorApi
             // Add application presentation components:
             container.RegisterMvcControllers(app);
             container.RegisterMvcViewComponents(app);
-
+     
             container.Register(typeof(IRequestHandler<>), typeof(IRequestHandler<>).Assembly);
 
             // Add application services. For instance:

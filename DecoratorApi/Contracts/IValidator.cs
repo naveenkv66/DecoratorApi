@@ -5,8 +5,8 @@ using System.Threading.Tasks;
 
 namespace DecoratorApi.Contracts
 {
-    public interface IModelService<TRequest,TResponse>
+    public interface IValidator<Trequest,Trsponse>
     {
-        TResponse Process(TRequest request);
+        void Validate(Trequest request);
     }
 }

@@ -9,9 +9,17 @@ namespace DecoratorApi.RequestHandler
 {
     public class EmployeeRequestHandler : IRequestHandler<EmployeeRequest, EmployeeReponse>
     {
-        public EmployeeReponse Handle()
+        private readonly IModelService<EmployeeRequest, EmployeeReponse> modelService;
+        public EmployeeRequestHandler(IModelService<EmployeeRequest, EmployeeReponse> modelService)
         {
-            throw new NotImplementedException();
+            this.modelService = modelService;
+        }
+        
+
+        public EmployeeReponse Handle(EmployeeRequest request)
+        {
+           var empResponse = modelService.Process(request);
+           return empResponse;
         }
     }
 }
